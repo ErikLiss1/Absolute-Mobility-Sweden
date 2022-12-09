@@ -2,9 +2,8 @@
 /**************** Preamble: Set directories ****************/
 
 // user specific paths
-global user ""								// your MONA user name
-global user_main "" // Your working Directory
-global connectionstring "" // Your connectionstring to SCL Server
+global user "Erik"								// your MONA user name
+global user_main "//micro.intra/projekt/P0515$/P0515_Gem/Erik" // Your working 
 
 /***********************************************************/
 
@@ -32,36 +31,19 @@ merge 1:1 BirthYearChild using "Absolute Mobility TopAge $TopAge AgeatBirth $Age
 }
 }
 
-
+drop if AM_34_34_1_0 ==.
 global B BirthYearChild 
 global C connected   
 
 twoway ///
-($C AM_38_34_1_1 $B , mcolor(black) legend(label(1 "Age span 30-38, Age at childbirth<34, inc. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
-($C AM_38_38_1_1 $B , mcolor(black) legend(label(2 "Age span 30-38, Age at childbirth<38, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-($C AM_38_34_1_0 $B , mcolor(gs8) legend(label(3 "Age span 30-38, Age at childbirth<34, exl. zero incomes")) msymbol(O) lpattern(solid) lcolor(gs8)) ///
-($C AM_38_38_1_0 $B , mcolor(gs8) legend(label(4 "Age span 30-38, Age at childbirth<38, exl. zero incomes")) msymbol(O) lpattern(dash_dot) lcolor(gs8)) ///
-($C AM_34_34_1_1 $B , mcolor(black) legend(label(5 "Age span 30-34, Age at childbirth<34, inc. zero incomes")) msymbol(D) lpattern(solid) lcolor(black)) ///
-($C AM_34_38_1_1 $B , mcolor(black) legend(label(6 "Age span 30-34, Age at childbirth<38, inc. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(black)) ///
-($C AM_34_34_1_0 $B , legend(label(7 "Agespan 30-34, Age at childbirth<34, exl. zero incomes")) mcolor(gs8) msymbol(D) lpattern(solid) lcolor(gs8)) ///
-($C AM_34_38_1_0 $B , mcolor(gs8) legend(label(8 "Age span 30-34, Age at childbirth<38, exl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(gs8)) ///
-($C AM_32_34_1_1 $B , mcolor(blue) legend(label(9 "Age span 30-32, Age at childbirth<34, inc. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
-($C AM_30_34_1_1 $B , mcolor(red) legend(label(10 "Age span 30-30, Age at childbirth<34, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-($C AM_30_32_1_1 $B , mcolor(red) legend(label(10 "Age span 30-30, Age at childbirth<34, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-($C AM_32_32_1_1 $B , mcolor(red) legend(label(10 "Age span 30-30, Age at childbirth<34, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-, graphregion(fcolor(white) lcolor(white)) plotregion(lcolor(black)) ///
- ytitle("") xtitle("") scheme(s2mono) yscale(titlegap(2)) legend(cols(1)) 
- 
- 
-twoway ///
-($C AM_38_34_1_1 $B , mcolor(black) legend(label(1 "Age span 30-38, Age at childbirth<34, inc. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
-($C AM_38_38_1_1 $B , mcolor(black) legend(label(2 "Age span 30-38, Age at childbirth<38, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-($C AM_38_34_1_0 $B , mcolor(gs8) legend(label(3 "Age span 30-38, Age at childbirth<34, exl. zero incomes")) msymbol(O) lpattern(solid) lcolor(gs8)) ///
-($C AM_38_38_1_0 $B , mcolor(gs8) legend(label(4 "Age span 30-38, Age at childbirth<38, exl. zero incomes")) msymbol(O) lpattern(dash_dot) lcolor(gs8)) ///
-($C AM_34_34_1_1 $B , mcolor(black) legend(label(5 "Age span 30-34, Age at childbirth<34, inc. zero incomes")) msymbol(D) lpattern(solid) lcolor(black)) ///
-($C AM_34_38_1_1 $B , mcolor(black) legend(label(6 "Age span 30-34, Age at childbirth<38, inc. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(black)) ///
-($C AM_34_34_1_0 $B , legend(label(7 "Agespan 30-34, Age at childbirth<34, exl. zero incomes")) mcolor(gs8) msymbol(D) lpattern(solid) lcolor(gs8)) ///
-($C AM_34_38_1_0 $B , mcolor(gs8) legend(label(8 "Age span 30-34, Age at childbirth<38, exl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(gs8)) ///
+($C AM_38_34_1_1 $B , mcolor(black) legend(label(1 "Age span 30-38, Age at childbirth<34, excl. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
+($C AM_38_38_1_1 $B , mcolor(black) legend(label(2 "Age span 30-38, Age at childbirth<38, excl. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
+($C AM_38_34_1_0 $B , mcolor(gs8) legend(label(3 "Age span 30-38, Age at childbirth<34, incl. zero incomes")) msymbol(O) lpattern(solid) lcolor(gs8)) ///
+($C AM_38_38_1_0 $B , mcolor(gs8) legend(label(4 "Age span 30-38, Age at childbirth<38, incl. zero incomes")) msymbol(O) lpattern(dash_dot) lcolor(gs8)) ///
+($C AM_34_34_1_1 $B , mcolor(black) legend(label(5 "Age span 30-34, Age at childbirth<34, excl. zero incomes")) msymbol(D) lpattern(solid) lcolor(black)) ///
+($C AM_34_38_1_1 $B , mcolor(black) legend(label(6 "Age span 30-34, Age at childbirth<38, excl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(black)) ///
+($C AM_34_34_1_0 $B , legend(label(7 "Agespan 30-34, Age at childbirth<34, incl. zero incomes")) mcolor(gs8) msymbol(D) lpattern(solid) lcolor(gs8)) ///
+($C AM_34_38_1_0 $B , mcolor(gs8) legend(label(8 "Age span 30-34, Age at childbirth<38, incl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(gs8)) ///
 , graphregion(fcolor(white) lcolor(white)) plotregion(lcolor(black)) ///
  ytitle("") xtitle("") xlabel(1972(1)1983) scheme(s2mono) yscale(titlegap(2)) legend(cols(1)) ylabel(0.7 "70%" 0.75 "75%" 0.8 "80%" 0.85 "85%")
 
@@ -104,14 +86,14 @@ global B BirthYearChild
 global C connected                           
 
 twoway ///
-($C AM_38_34_2_1 $B , mcolor(black) legend(label(1 "Age span 30-38, Age at childbirth<34, inc. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
-($C AM_38_38_2_1 $B , mcolor(black) legend(label(2 "Age span 30-38, Age at childbirth<38, inc. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
-($C AM_38_34_2_0 $B , mcolor(gs8) legend(label(3 "Age span 30-38, Age at childbirth<34, exl. zero incomes")) msymbol(O) lpattern(solid) lcolor(gs8)) ///
-($C AM_38_38_2_0 $B , mcolor(gs8) legend(label(4 "Age span 30-38, Age at childbirth<38, exl. zero incomes")) msymbol(O) lpattern(dash_dot) lcolor(gs8)) ///
-($C AM_34_34_2_1 $B , mcolor(black) legend(label(5 "Age span 30-34, Age at childbirth<34, inc. zero incomes")) msymbol(D) lpattern(solid) lcolor(black)) ///
-($C AM_34_38_2_1 $B , mcolor(black) legend(label(6 "Age span 30-34, Age at childbirth<38, inc. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(black)) ///
-($C AM_34_34_2_0 $B , legend(label(7 "Agespan 30-34, Age at childbirth<34, exl. zero incomes")) mcolor(gs8) msymbol(D) lpattern(solid) lcolor(gs8)) ///
-($C AM_34_38_2_0 $B , mcolor(gs8) legend(label(8 "Age span 30-34, Age at childbirth<38, exl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(gs8)) ///
+($C AM_38_34_2_1 $B , mcolor(black) legend(label(1 "Age span 30-38, Age at childbirth<34, excl. zero incomes")) msymbol(O) lpattern(solid) lcolor(black)) ///
+($C AM_38_38_2_1 $B , mcolor(black) legend(label(2 "Age span 30-38, Age at childbirth<38, excl. zero incomes"))  msymbol(O) lpattern(dash_dot) lcolor(black)) ///
+($C AM_38_34_2_0 $B , mcolor(gs8) legend(label(3 "Age span 30-38, Age at childbirth<34, incl. zero incomes")) msymbol(O) lpattern(solid) lcolor(gs8)) ///
+($C AM_38_38_2_0 $B , mcolor(gs8) legend(label(4 "Age span 30-38, Age at childbirth<38, incl. zero incomes")) msymbol(O) lpattern(dash_dot) lcolor(gs8)) ///
+($C AM_34_34_2_1 $B , mcolor(black) legend(label(5 "Age span 30-34, Age at childbirth<34, excl. zero incomes")) msymbol(D) lpattern(solid) lcolor(black)) ///
+($C AM_34_38_2_1 $B , mcolor(black) legend(label(6 "Age span 30-34, Age at childbirth<38, excl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(black)) ///
+($C AM_34_34_2_0 $B , legend(label(7 "Agespan 30-34, Age at childbirth<34, incl. zero incomes")) mcolor(gs8) msymbol(D) lpattern(solid) lcolor(gs8)) ///
+($C AM_34_38_2_0 $B , mcolor(gs8) legend(label(8 "Age span 30-34, Age at childbirth<38, incl. zero incomes")) msymbol(D) lpattern(dash_dot) lcolor(gs8)) ///
 , graphregion(fcolor(white) lcolor(white)) plotregion(lcolor(black)) ///
  ytitle("") xtitle("") xlabel(1972(1)1983) scheme(s2mono) yscale(titlegap(2)) legend(cols(1)) ylabel(0.75 "75%" 0.8 "80%" 0.85 "85%" 0.9 "90%")
 

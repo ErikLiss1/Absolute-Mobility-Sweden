@@ -119,32 +119,9 @@ rename ParentEarning 	meanParentEarning
 gen MeanIncomeRatio = ///
 	(meanChildEarning / meanParentEarning)
 
-/* 
-We plug in the parameters in the closed form formula shown in equation 2 in the paper. 
-Since we take the log of incomesn, we should preferably choose values greater than one. We choose 2 as the parent mean. The standard deviation is given by equation 2 in the paper.
-*/
-
-gen MeanC = log(MeanIncomeRatio*2)
-gen MeanP = log(2)
-gen SD = sqrt(exp(1))
-gen LogSqrtSD = log(SD)
-
-* We set SDp=SDc=log(${SD})
-gen SDp = LogSqrtSD
-gen SDc = LogSqrtSD
-
-* We set the intergenerational correlation Rho to 0 (see equation 2)
-gen Rho = 0
-
-* Calculating Gini coefficient for the reference point distribution (log normal distribution):
-gen Gini = 2*normal((log(SD)/2)*sqrt(2))-1
-
-* Create variable for  Growth Rate for plots
-gen LogGrowth = MeanC - MeanP
-
-* Calculating Absolute Mobility
+* Calculating Absolute Mobility using equation 4:
 gen AbsoluteMobility = normal( ///
-	((MeanC-MeanP)/sqrt(SDc^2-2*Rho*SDp*SDc+SDc^2)))
+	(ln(MeanIncomeRatio)/sqrt(0.5)))	
 
 * Renaming to component name. This is the growth component: 
 rename AbsoluteMobility HomneousGr_${estimate} // Growth component

@@ -18,4 +18,4 @@ cd "$user_main"
 do "2. US Sample.do"
 
 cd "$user_main"
-do "3. Parent Dispersion Effect Figure.do"
+do "3. Figure 4 Parent Dispersion Effect.do"

@@ -117,7 +117,7 @@ twoway 	///
 		, graphregion(fcolor(white) lcolor(white)) /// 	 
 		plotregion(lcolor(black)) name(Men, replace) ///
 		legend(cols(1) region(lcolor(white))) xlabel(1972(1)1983) ///
-		scheme(s2mono) title("A.") xtitle(" ") ///
+		scheme(s2mono) title("A. Men") xtitle(" ") xlabel(, angle(45)) ///
 		ylabel(0.0 "50%" 0.1 "60%" 0.2 "70%" 0.3 "80%" 0.4 "90%")
 	
 cd "$user_main\Absolute Mobility\Output Main Tables And Figure"
@@ -231,15 +231,25 @@ twoway 	///
 		barwidth($bw)) ///
 		(line AM_${estimate} BirthYearChild) ///
 		, graphregion(fcolor(white) lcolor(white)) /// 	 
-		plotregion(lcolor(black)) name(Men, replace) ///
+		plotregion(lcolor(black)) name(Women, replace) ///
 		legend(cols(1) region(lcolor(white))) xlabel(1972(1)1983) ///
-		scheme(s2mono) title("B.") xtitle(" ") ///
+		scheme(s2mono) title("B. Women") xtitle(" ") xlabel(, angle(45)) ///
 		ylabel(0.0 "50%" 0.1 "60%" 0.2 "70%" 0.3 "80%" 0.4 "90%")
 	
 cd "$user_main\Absolute Mobility\Output Main Tables And Figure"
 graph export "Figure A7 Decomposition Women Empirical Parent.png", as(png) replace
 graph export "Figure A7 Decomposition Women Empirical Parent.pdf", as(pdf) replace
 graph export "Figure A7 Decomposition Women Empirical Parent.tif", as(pdf) replace
+
+
+grc1leg  Men Women, graphregion(fcolor(white) lcolor(white)) /// 	 
+		plotregion(lcolor(black)) 
+		
+cd "$user_main\Absolute Mobility\Output Main Tables And Figure"
+graph export "Figure A7 Decomposition Empirical Parent.png", as(png) replace
+graph export "Figure A7 Decomposition Empirical Parent.pdf", as(pdf) replace
+graph export "Figure A7 Decomposition Empirical Parent.tif", as(pdf) replace
+
 
 * Open next do-file:
 
